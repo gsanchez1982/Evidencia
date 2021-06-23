@@ -1,9 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-//Esta clase tiene un solo método: opciones().
-//El método opciones() es el menú interactivo del usuario para interactuar con las funciones del programa.
-
 public class logIn {
     static HashMap<String, String> credentials = new HashMap<>();
     //^Crea el HashMap de credenciales.
@@ -66,22 +63,55 @@ public class logIn {
         Scanner uid = new Scanner(System.in);
         String userId = uid.nextLine();
 
-        System.out.println("Ahora, escriba a continuación su contraseña y presione Enter:");
-
-        Scanner pwd = new Scanner(System.in);
-        String passwd = pwd.nextLine();
 
         if (credentials.containsKey(userId)){
-            System.out.println("Tu usuario existe");
+
+            //Si el usuario existe, se solicita la contraseña del usuario:
+            System.out.println("Ahora, escriba a continuación su contraseña y presione Enter:");
+            Scanner pwd = new Scanner(System.in);
+            String passwd = pwd.nextLine();
+
+            System.out.println(credentials.get(userId));
+
+            //El siguiente if comprueba si la contraseña es correcta.
+            //Si lo es, lleva al usuario al menu principal.
+            //Si no lo es, se le lleva al menú de credenciales incorrectas.
+
+            if (credentials.get(userId).equals(passwd)){
+                System.out.println("Tu contraseña es correcta");
+            } else {
+                System.out.println("Tu contraseña es incorrecta");
+                incorrecto();
+
+            }
         } else {
-            System.out.println("Tu usuario no existe");
+            //Si el usuario no existe, se le avisa al usuario, y se le lleva al menú de credenciales incorrectas.
+            System.out.println("Tu usuario no existe.");
+            incorrecto();
+        }
         }
 
-        if (credentials.get(userId) == passwd){
-            System.out.println("Tu contraseña es correcta");
-        } else {
-            System.out.println("Tu contraseña es incorrecta");
-        }
 
+    // Menú de credenciales incorrectas:
+    // Se le pregunta al usuario si quiere volver a intentarlo, o salir del programa.
+    public static void incorrecto() {
+        System.out.println("¿Deseas volver a intentarlo, o salir del programa?");
+        System.out.println("[1] -- Volver a intentarlo.");
+        System.out.println("[2] -- Salir del programa.");
+
+        Scanner seleccion = new Scanner(System.in);
+        String y = seleccion.nextLine();
+
+        switch (y) {
+            case "1":
+                inicio();
+            case "2":
+                System.out.println("El programa ha terminado exitosamente. ¡Hasta luego!");
+                System.exit(0);
+            default:
+                System.out.println("Esa no es una opción válida. Favor de intentar de nuevo.");
+                incorrecto();
+
+        }
     }
 }
