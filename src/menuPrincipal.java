@@ -22,8 +22,7 @@ public class menuPrincipal {
                 System.out.println("Doctores");
                 System.exit(0);
             case "2":
-                System.out.println("Pacientes");
-                System.exit(0);
+                pacientes.agregar();
             case "3":
                 System.out.println("Citas");
                 System.exit(0);

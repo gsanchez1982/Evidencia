@@ -20,12 +20,12 @@ public class logIn {
 
             try {
                 File file = new File(nombreArchivo);
-                if (!file.exists()) {
+                if (file.exists() == false) {
                     file.createNewFile();
+                    PrintWriter pw = new PrintWriter(file);
+                    pw.println();
+                    pw.close();
                 }
-                PrintWriter pw = new PrintWriter(file);
-                pw.println();
-                pw.close();
 
             } catch (IOException e){
                 e.printStackTrace();
@@ -33,6 +33,7 @@ public class logIn {
 
         //Best practice es usar try-catch cuando se manejen archivos.
         try {
+            File file = new File(nombreArchivo);
             Scanner inputStream = new Scanner(file);
             int n = 0;
             // El while guarda cada dato del archivo csv en un Array, "x" o "a", según si es par o non.
