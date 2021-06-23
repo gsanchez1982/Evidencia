@@ -19,8 +19,7 @@ public class menuPrincipal {
 
         switch(x) {
             case "1":
-                System.out.println("Doctores");
-                System.exit(0);
+                doctores.agregar();
             case "2":
                 pacientes.agregar();
             case "3":
