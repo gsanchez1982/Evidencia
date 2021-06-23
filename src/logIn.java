@@ -78,7 +78,7 @@ public class logIn {
             //Si no lo es, se le lleva al menú de credenciales incorrectas.
 
             if (credentials.get(userId).equals(passwd)){
-                System.out.println("Tu contraseña es correcta");
+                menuPrincipal.opciones();
             } else {
                 System.out.println("Tu contraseña es incorrecta");
                 incorrecto();
