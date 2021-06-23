@@ -17,14 +17,19 @@ public class logIn {
 
         //El siguiente código establece la comunicación entre el programa y el archivo csv:
         //En caso de que el archivo no exista, el try-catch crea un nuevo archivo de base de datos.
-        File file = new File(nombreArchivo);
-        if (!file.exists()){
+
             try {
-            file.createNewFile();
+                File file = new File(nombreArchivo);
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                PrintWriter pw = new PrintWriter(file);
+                pw.println();
+                pw.close();
+
             } catch (IOException e){
                 e.printStackTrace();
             }
-        }
 
         //Best practice es usar try-catch cuando se manejen archivos.
         try {
