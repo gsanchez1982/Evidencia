@@ -6,8 +6,8 @@ import java.util.*;
 public class menuPrincipal {
     public static void opciones(){
         System.out.println("Seleccione del siguiente menú la opción deseada:");
-        System.out.println("[1] -- Doctores");
-        System.out.println("[2] -- Pacientes");
+        System.out.println("[1] -- Agregar un Doctor");
+        System.out.println("[2] -- Agregar un Paciente");
         System.out.println("[3] -- Crear una nueva cita");
         System.out.println("[4] -- Cambiar de usuario");
         System.out.println("[5] -- Salir del Programa");
